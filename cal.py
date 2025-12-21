@@ -5,7 +5,7 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 
-ICAL_URL = os.dotenv('GOOGLE_ICAL_URL')
+ICAL_URL = os.gotenv('GOOGLE_ICAL_URL')
 
 
 response = requests.get(ICAL_URL)
