@@ -2,9 +2,13 @@ import requests
 from icalendar import Calendar
 from datetime import datetime, date, time, timezone, timedelta
 import pandas as pd
+import os
+from dotenv import load_dotenv
+
+ICAL_URL = os.dotenv('GOOGLE_ICAL_URL')
 
 
-response = requests.get("https://calendar.google.com/calendar/ical/hisamug%40gmail.com/public/basic.ics")
+response = requests.get(ICAL_URL)
 
 summaryone = []
 
