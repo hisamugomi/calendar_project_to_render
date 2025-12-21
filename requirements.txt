@@ -2,3 +2,4 @@ Django
 pandas
 icalendar
 requests
+dotenv
