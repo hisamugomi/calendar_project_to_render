@@ -3,3 +3,5 @@ pandas
 icalendar
 requests
 dotenv
+pathlib
+Django-dotenv
