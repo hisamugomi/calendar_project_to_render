@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('DJANGOKEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com']
+ALLOWED_HOSTS = ['localhost', '0.0.0.0', '.onrender.com']
 
 
 # Application definition
