@@ -28,7 +28,7 @@ def get_full_schedule(busy_events):
                     "label": "free",
                     "type": "free"  # We'll use this for the CSS class
                 })
-        else : full_schedule.append({
+        elif busy_events[i]['end']: full_schedule.append({
             "start": busy_events[i]['end'],
             "end": datetime(2025, 10, 23, 20, 0, tzinfo=timezone.utc),
             "label": "free",
