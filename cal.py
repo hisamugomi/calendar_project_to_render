@@ -4,9 +4,18 @@ from datetime import datetime, date, time, timezone, timedelta
 import pandas as pd
 import os
 from dotenv import load_dotenv
+import calll
 
+load_dotenv()
 ICAL_URL = os.getenv('GOOGLE_ICAL_URL')
 
+calendar_events = [
+    {"start": datetime(2025, 10, 22, 1, 0, tzinfo=timezone.utc), "end": datetime(2025, 10, 22, 6, 30, tzinfo=timezone.utc), "label": "Busy"},
+    {"start": datetime(2025, 10, 22, 8, 0, tzinfo=timezone.utc), "end": datetime(2025, 10, 22, 9, 0, tzinfo=timezone.utc), "label": "Meeting"},
+    {"start": datetime(2025, 10, 22, 9, 0, tzinfo=timezone.utc), "end": datetime(2025, 10, 22, 10, 0, tzinfo=timezone.utc), "label": "Part-time"},
+    {"start": datetime(2025, 10, 22, 12, 0, tzinfo=timezone.utc), "end": datetime(2025, 10, 22, 13, 30, tzinfo=timezone.utc), "label": "✅ Coding"},
+    {"start": datetime(2025, 10, 23, 1, 0, tzinfo=timezone.utc), "end": datetime(2025, 10, 23, 2, 0, tzinfo=timezone.utc), "label": "Busy"}
+]
 
 response = requests.get(ICAL_URL)
 
@@ -24,7 +33,7 @@ index = 0
 # 2. Parse it
 cal = Calendar.from_ical(response.content)
 
-print(cal)
+# print(cal)
 
 # 3. Loop through events
 for event in cal.walk('VEVENT'):
@@ -37,13 +46,6 @@ for event in cal.walk('VEVENT'):
 filtered = sorted(summaryone, key = lambda x: x['starttime'])
 df = pd.DataFrame(filtered)
 
-print(df)
-
-# def freetime(date):
-#     if x == date:
-#         listoftimes.append(x)
-
-# def figureoutfree(listoftimes):
-    
-# def rangeofdates(df):
-
+# print(df)
+free_times = calll.list_free_times(calendar_events)
+print(free_times)
