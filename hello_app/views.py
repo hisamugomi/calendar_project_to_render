@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from datetime import datetime, timedelta, timezone, date
+import cal
 
 busy_events =  [
     {"start": datetime(2025, 10, 22, 10, 0, tzinfo=timezone.utc), "end": datetime(2025, 10, 22, 16, 30, tzinfo=timezone.utc), "label": "Busy"},
@@ -39,10 +40,13 @@ def get_full_schedule(busy_events):
 def welcome_message():
     message = f"Welcome Hisamu, \n {datetime.today().date()}"
     return message
-
+def free_times():
+    free_times = cal.free_times
+    return free_times 
 def home(request):
     context = {
         'message': welcome_message(),
+        'free_times' : free_times,
         'full_schedule' : get_full_schedule(busy_events),
         'status': 'Success'
     }

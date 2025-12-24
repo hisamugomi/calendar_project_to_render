@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'hello_app/style.css' %}">
+    <link rel="stylesheet" href="{% static 'hello_app/style.css' %}?v={{ timestamp }}">
 </head>
 
 <body>
-    <!-- <h1>{{ message }}</h1>
+    <h1>{{ message }}</h1>
     <div class="schedule-grid">
         {% for event in full_schedule %}
         <div class="time-marker">{{ event.start|date:"H:i" }}</div>
@@ -23,26 +23,25 @@
         </div>
         {% endfor %}
     </div>
+    <div class="container">
+
+
+        <div class="text-area-container">
+            <textarea placeholder="ここにメッセージを入力してください...
+Type your message here...
+
+日本語入力中にEnterを押しても送信されません！
+You can press Enter while typing in Japanese!"></textarea>
+        </div>
+    </div>
     <div>
 
         {% for free_time in free_times %}
         <div>{{ free_time }}</div>
         {% endfor %}
     </div>
-    
-    <div class="container">
-        
-        
-        <div class="text-area-container">
-            <textarea 
-                placeholder="ここにメッセージを入力してください...
-Type your message here...
 
-日本語入力中にEnterを押しても送信されません！
-You can press Enter while typing in Japanese!"
-            ></textarea>      
-        </div>     
-    </div> -->
+
 
     <iframe
         src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FTokyo&showPrint=0&src=aGlzYW11Z0BnbWFpbC5jb20&src=ZGUuY2gjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4uamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%237986cb&color=%230b8043&color=%230b8043"
