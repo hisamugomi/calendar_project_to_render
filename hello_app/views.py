@@ -9,12 +9,12 @@ busy_events =  [
 ]
 
 # Create your views here.
-def get_full_schedule(busy_events):
-    full_schedule = []
+def fill_schedule_free(busy_events):
+    day_schedule = []
     
     for i in range(len(busy_events)):
         # Add the busy event itself
-        full_schedule.append(busy_events[i])
+        day_schedule.append(busy_events[i])
         
         # 2. Check for a gap between this event and the next one
         if i < len(busy_events) - 1:
@@ -23,19 +23,19 @@ def get_full_schedule(busy_events):
             
             if next_start > current_end:
                 # We found a gap! Create a "Free" event
-                full_schedule.append({
+                day_schedule.append({
                     "start": current_end,
                     "end": next_start,
                     "label": "free",
                     "type": "free"  # We'll use this for the CSS class
                 })
-        elif busy_events[i]['end']: full_schedule.append({
+        elif busy_events[i]['end']: day_schedule.append({
             "start": busy_events[i]['end'],
             "end": datetime(2025, 10, 23, 20, 0, tzinfo=timezone.utc),
             "label": "free",
             "type": "free"  # We'll use this for the CSS class
         })
-    return full_schedule
+    return day_schedule
 
 def welcome_message():
     message = f"Welcome Hisamu, \n {datetime.today().date()}"
@@ -47,7 +47,7 @@ def home(request):
     context = {
         'message': welcome_message(),
         'free_times' : free_times,
-        'full_schedule' : get_full_schedule(busy_events),
+        'day_schedule' : get_full_schedule(busy_events),
         'status': 'Success'
     }
     return render(request, 'hello.html', context)

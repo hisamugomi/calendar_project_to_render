@@ -6,3 +6,4 @@ dotenv
 pathlib
 Django-dotenv
 gunicorn
+whitenoise
