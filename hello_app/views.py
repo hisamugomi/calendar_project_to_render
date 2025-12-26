@@ -8,6 +8,7 @@ busy_events =  [
     {"start": datetime(2025, 10, 22, 21, 0, tzinfo=timezone.utc), "end": datetime(2025, 10, 22, 13, 30, tzinfo=timezone.utc), "label": "✅ Coding"},
 ]
 
+
 # Create your views here.
 def fill_schedule_free(busy_events):
     day_schedule = []
@@ -36,6 +37,22 @@ def fill_schedule_free(busy_events):
             "type": "free"  # We'll use this for the CSS class
         })
     return day_schedule
+#I want to create it so that it shows a full days worth of schedules with hours. Ideally takes the day schedule from function fill_schedule_free
+def full_schedule(days_sche):
+    #Get the date
+    targetday = date(days_sche[0]["start"])
+    full_schedule = []
+    # #Loops through every hour.
+    # for i in range(1,24):
+    #     #1. Need to check if i o'clock is occupied, if occupied, give us a json 
+    #     #of what is in that timeslot, and put it into the full_schedule array / list
+    #     #How do I change the i into an hour. and I need to pass the hour to check 
+    #     # if it is occupied             
+        
+    return
+    
+def get_full_schedule(events):
+    return events
 
 def welcome_message():
     message = f"Welcome Hisamu, \n {datetime.today().date()}"
