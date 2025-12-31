@@ -42,11 +42,13 @@ body {
 /* The Grid Layout */
 .schedule-grid {
     display: grid;
-    grid-template-columns: 60px 1fr;
+    /* grid-template-columns: 60px 1fr; */
     /* 60px for time, rest for content */
     gap: 20px;
     margin-top: 30px;
 }
+
+
 
 .time-marker {
     font-weight: bold;
